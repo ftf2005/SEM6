@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f7fc; /* Soft light background */
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 10px;
+        }
+        th {
+            background-color: #4CAF50; /* Green header */
+            color: white;
+            font-weight: bold;
+        }
+        tbody td {
+            background-color: #e3f2fd; /* Soft blue for regular cells */
+        }
+        tbody tr:nth-child(even) td {
+            background-color: #ffe0b2; /* Soft peach for alternate rows */
+        }
+        tbody tr:hover td {
+            background-color: #c8e6c9; /* Light green on hover */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Timetable</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Weekdays</th>
+                <th>Slot-1 (8-9 am)</th>
+                <th>Slot-2 (9-10 am)</th>
+                <th>Slot-3 (10-11 am)</th>
+                <th>Slot-4 (11-12 pm)</th>
+                <th>Slot-5 (12-1 pm)</th>
+                <th>Slot-6 (1-2 pm)</th>
+                <th>Slot-7 (2-3 pm)</th>
+                <th>Slot-8 (3-4 pm)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Monday</td>
+                <td>MKTG3011</td>
+                <td>CSEN1131</td>
+                <td>CSEN1131P</td>
+                <td>CSEN2071</td>
+                <td>FINA3011</td>
+                <td></td>
+                <td>CSEN3031P</td>
+                <td>CSEN3031P</td>
+                
+            </tr>
+            <tr>
+                <td>Tuesday</td>
+                <td>CSEN2071</td>
+                <td>CSEN3031</td>
+                <td>CSEN3031</td>
+                <td>CSEN1131</td>
+                <td>FINA3011</td>
+                <td></td>
+                <td>24CSEN1081</td>
+                <td>24CSEN1081</td>
+            </tr>
+            <tr>
+                <td>Wednesday</td>
+                <td>CSEN1131P</td>
+                <td>CSEN1131P</td>
+                <td>MKTG3011</td>
+                <td>CSEN2071</td>
+                <td>FINA3011</td>
+                <td></td>
+                <td>PHYS3191</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Thursday</td>
+                <td>CSEN3071</td>
+                <td>CSEN2071</td>
+                <td>CSEN3071P</td>
+                <td>CSEN3071P</td>
+                <td>PHYS3191</td>
+                <td></td>
+                <td>CSEN3031</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Friday</td>
+                <td>MKTG3011</td>
+                <td></td>
+                <td>CSEN1131</td>
+                <td></td>
+                <td>FINA3011</td>
+                <td></td>
+                <td>CLAD2031</td>
+                <td>CLAD2031</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
