@@ -1,4 +1,5 @@
 #include "stdio.h"
+#include "math.h"
 int main()
 {
 	int n,r,z,x,y,sum=0,count=0;
@@ -15,7 +16,7 @@ int main()
 	while(y!=0)
 	{
 		z=y%10;
-		sum=sum+(z*z*z);
+		sum += pow(z, count);
 		y=y/10;
 	}
 	if(sum==n)
@@ -26,4 +27,6 @@ int main()
 	{
 		printf("its not a armstrong number");
 	}
+//	printf("%d\n",sum);
+//	printf("%d\n",count);
 }
