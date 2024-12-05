@@ -1,0 +1,209 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    background: radial-gradient(circle at center, #000000, #2c2c2c);
+    overflow-x: hidden;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header Section */
+  header {
+    text-align: center;
+    padding: 40px 0;
+    background: rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.7);
+    position: relative;
+    z-index: 10;
+  }
+  
+  header h1 {
+    font-size: 4rem;
+    color: #ff3b30; /* Iron Man red */
+    text-shadow: 0 0 20px rgba(255, 59, 48, 0.8), 0 0 30px rgba(255, 59, 48, 0.9);
+  }
+  
+  header p {
+    font-size: 1.5rem;
+    color: #f0db4f; /* Yellow */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    animation: pulse 2s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.05);
+    }
+  }
+  
+  /* Hero Section */
+  #hero {
+    position: relative;
+    height: 100vh;
+    background: url('iron-man-hero-bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+    animation: fadeIn 3s ease;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .hero-content {
+    z-index: 10;
+    margin-bottom: 30px;
+  }
+  
+  .hero-content h2 {
+    font-size: 4rem;
+    color: #ff3b30;
+    text-shadow: 0 0 30px rgba(255, 59, 48, 0.8), 0 0 50px rgba(255, 59, 48, 1);
+    margin-bottom: 20px;
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 300;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-btn {
+    background: rgba(240, 219, 79, 0.9);
+    color: #333;
+    padding: 16px 35px;
+    font-size: 1.4rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 5px 20px rgba(240, 219, 79, 0.4);
+  }
+  
+  .cta-btn:hover {
+    background-color: #e0c544;
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(240, 219, 79, 0.8);
+  }
+  
+  /* Iron Man Moments Section */
+  #iron-man-moments {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    text-align: center;
+  }
+  
+  #iron-man-moments .section-title h2 {
+    font-size: 2.5rem;
+    color: #f0db4f;
+    margin-bottom: 10px;
+  }
+  
+  #iron-man-moments .section-title p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 40px;
+  }
+  
+  /* Hero Images */
+  .hero-images {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .hero-images a {
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero-img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%; /* Circular shape */
+    object-fit: cover;
+    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hero-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(255, 59, 48, 0.9);
+  }
+  
+  /* About Section */
+  #about {
+    padding: 60px 20px;
+    background: rgba(0, 0, 0, 0.9);
+    color: #ccc;
+    text-align: center;
+    box-shadow: inset 0px 10px 20px rgba(0, 0, 0, 0.6);
+    position: relative;
+  }
+  
+  #about h2 {
+    font-size: 3rem;
+    color: #f0db4f;
+    margin-bottom: 30px;
+    text-shadow: 0px 0px 15px rgba(255, 59, 48, 0.7);
+  }
+  
+  #about p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto 30px;
+  }
+  
+  .external-link {
+    color: #f0db4f;
+    font-weight: bold;
+    text-decoration: none;
+    border-bottom: 2px solid #f0db4f;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+  }
+  
+  .external-link:hover {
+    color: #ff3b30;
+    border-bottom: 2px solid #ff3b30;
+  }
+  
+  /* Footer */
+  footer {
+    padding: 20px 10px;
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.6);
+  }
+  
