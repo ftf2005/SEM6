@@ -3,25 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catalogue -Gitam University Book Store</title>
+    <title>Catalogue - Gitam University Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f9f4;
+            margin: 0;
+        }
+
+        #top-frame {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #top-frame img {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+
+        #top-frame h1 {
+            display: inline;
+        }
+
+        .content-container {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+
+        .content-heading {
+            color: #2d6a4f;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .category {
+            margin-bottom: 30px;
+        }
+
+        .category button {
+            width: 100%;
+            background-color: #2d6a4f;
+            color: white;
+            padding: 14px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .category button:hover {
+            background-color: #1e4d3f;
+        }
+
+        .category ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 10px;
+            display: none;
+            padding-left: 20px;
+        }
+
+        .category ul li {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+
+        .category ul li a {
+            color: #2d6a4f;
+            text-decoration: none;
+        }
+
+        .category ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-link {
+            color: #2d6a4f;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .cart-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        function toggleDropdown(categoryId) {
+            const list = document.getElementById(categoryId);
+            // Toggle visibility of the dropdown list
+            if (list.style.display === "none" || list.style.display === "") {
+                list.style.display = "block";
+            } else {
+                list.style.display = "none";
+            }
+        }
+    </script>
 </head>
 <body>
+
     <div id="top-frame">
-        <img src="logo.png" alt="Logo" style="height: 50px;">
+        <img src="logo.png" alt="Logo">
         <h1>Gitam University Book Store - Catalogue</h1>
     </div>
 
-    <div style="padding: 20px;">
-        <h2>Book Catalogue</h2>
-        <p>Browse books based on categories listed on the left.</p>
+    <div class="content-container">
+        <h2 class="content-heading">Book Catalogue</h2>
+        <p>Browse books based on categories listed below:</p>
 
-        <h3>BTech - CSE Books</h3>
-        <ul>
-            <li>Data Structures and Algorithms - John Doe</li>
-            <li>Operating Systems Concepts - Abraham Silberschatz</li>
-            <li>Computer Networks - Andrew S. Tanenbaum</li>
-        </ul>
-        <p>Click <a href="cart.html">here</a> to add books to your cart.</p>
+        <!-- BTech CSE Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('btech-cse')">BTech - CSE Books</button>
+            <ul id="btech-cse">
+                <li>Data Structures and Algorithms - John Doe</li>
+                <li>Operating Systems Concepts - Abraham Silberschatz</li>
+                <li>Computer Networks - Andrew S. Tanenbaum</li>
+                <li>Discrete Mathematics - Richard Johnsonbaugh</li>
+                <li>Database Management Systems - Raghu Ramakrishnan</li>
+                <li>Compiler Design - Alfred V. Aho</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
+
+        <!-- BTech IT Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('btech-it')">BTech - IT Books</button>
+            <ul id="btech-it">
+                <li>Introduction to Algorithms - Thomas H. Cormen</li>
+                <li>Computer Organization and Design - David A. Patterson</li>
+                <li>Software Engineering - Ian Sommerville</li>
+                <li>Web Technologies - Uttam Kumar Roy</li>
+                <li>Data Structures Using C - Reema Thareja</li>
+                <li>Digital Logic Design - M. Morris Mano</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
+
+        <!-- MTech CSE Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('mtech-cse')">MTech - CSE Books</button>
+            <ul id="mtech-cse">
+                <li>Advanced Algorithms - M. T. Goodrich</li>
+                <li>Machine Learning - Tom M. Mitchell</li>
+                <li>Deep Learning - Ian Goodfellow</li>
+                <li>Cloud Computing - James Bond</li>
+                <li>Big Data Analytics - Seema Gairola</li>
+                <li>Artificial Intelligence - Stuart Russell</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
+
+        <!-- MTech ECE Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('mtech-ece')">MTech - ECE Books</button>
+            <ul id="mtech-ece">
+                <li>Digital Signal Processing - John G. Proakis</li>
+                <li>Communication Systems - Simon Haykin</li>
+                <li>Electronic Devices and Circuits - Donald A. Neamen</li>
+                <li>Microprocessor Architecture - Ramesh S. Gaonkar</li>
+                <li>Antennas and Wave Propagation - John D. Kraus</li>
+                <li>VLSI Design - John P. Uyemura</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
+
+        <!-- BBA Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('bba')">BBA Books</button>
+            <ul id="bba">
+                <li>Principles of Management - Harold Koontz</li>
+                <li>Business Communication - Meenakshi Raman</li>
+                <li>Business Law - P. C. Tulsian</li>
+                <li>Human Resource Management - Gary Dessler</li>
+                <li>Marketing Management - Philip Kotler</li>
+                <li>Financial Accounting - S.N. Maheshwari</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
+
+        <!-- MBA Books Dropdown -->
+        <div class="category">
+            <button onclick="toggleDropdown('mba')">MBA Books</button>
+            <ul id="mba">
+                <li>Strategic Management - Michael A. Hitt</li>
+                <li>Organizational Behavior - Stephen P. Robbins</li>
+                <li>Financial Management - I.M. Pandey</li>
+                <li>Marketing Management - Philip Kotler</li>
+                <li>Managerial Economics - H.L. Ahuja</li>
+                <li>Business Research Methods - Donald R. Cooper</li>
+            </ul>
+            <p>Click <a href="cart.html" class="cart-link">here</a> to add books to your cart.</p>
+        </div>
     </div>
+
 </body>
 </html>
