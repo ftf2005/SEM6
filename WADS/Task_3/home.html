@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gitam University Book Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f9f4;
+            color: #333;
+        }
+
+        /* Top Navigation Bar */
+        #top-frame {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #top-frame a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        #top-frame a:hover {
+            text-decoration: underline;
+        }
+
+        #top-frame img {
+            height: 50px;
+            vertical-align: middle;
+            margin-right: 20px;
+        }
+
+        /* Left Sidebar */
+        #left-frame {
+            background-color: #e4f4e6;
+            padding: 20px;
+            width: 220px;
+            border-right: 2px solid #2d6a4f;
+        }
+
+        #left-frame a {
+            display: block;
+            padding: 12px;
+            color: #2d6a4f;
+            text-decoration: none;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        #left-frame a:hover {
+            background-color: #a8d5ba;
+        }
+
+        /* Right Content Area */
+        #right-frame {
+            padding: 30px;
+            flex-grow: 1;
+            background-color: #ffffff;
+        }
+
+        h1, h2 {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+        }
+
+        .content-heading {
+            color: #2d6a4f;
+            font-size: 2em;
+        }
+
+        .content-text {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top-frame">
+        <img src="logo.png" alt="Logo">
+        <h1 style="display: inline;">Gitam University Book Store</h1>
+        <div>
+            <a href="home.html">Home</a>
+            <a href="login.html">Login</a>
+            <a href="registration.html">Registration</a>
+            <a href="catalogue.html">Catalogue</a>
+            <a href="cart.html">Cart</a>
+        </div>
+    </div>
+
+    <div style="display: flex; height: calc(100vh - 100px);">
+
+        <!-- Left Sidebar (Categories) -->
+        <div id="left-frame">
+            <h2>Categories</h2>
+            <a href="catalogue.html?category=btech-cse">BTech - CSE</a>
+            <a href="catalogue.html?category=btech-it">BTech - IT</a>
+            <a href="catalogue.html?category=mtech-cse">MTech - CSE</a>
+            <a href="catalogue.html?category=mtech-ece">MTech - ECE</a>
+            <a href="catalogue.html?category=bba">BBA</a>
+            <a href="catalogue.html?category=mba">MBA</a>
+        </div>
+
+        <!-- Right Content Area (Description) -->
+        <div id="right-frame">
+            <h2 class="content-heading">Welcome to the Gitam University Book Store</h2>
+            <p class="content-text">Welcome to Gitam University's official online bookstore. Here, students and faculty can find textbooks, reference books, and other educational resources to help in their academic journey. Browse through our catalogue to find the books you need and add them to your cart for easy checkout.</p>
+            <p class="content-text">Browse the categories in the left sidebar to explore the wide range of books available in our bookstore. Start shopping now and get the resources you need for success!</p>
+        </div>
+    </div>
+
+</body>
+</html>

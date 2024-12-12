@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Gitam University Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f9f4;
+        }
+
+        #top-frame {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #top-frame a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        #top-frame a:hover {
+            text-decoration: underline;
+        }
+
+        /* Form Styling */
+        .registration-form {
+            width: 350px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #2d6a4f;
+        }
+
+        .registration-form h2 {
+            text-align: center;
+            color: #2d6a4f;
+        }
+
+        .registration-form label {
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .registration-form input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .registration-form input[type="submit"] {
+            background-color: #2d6a4f;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+        }
+
+        .registration-form input[type="submit"]:hover {
+            background-color: #1e4d3f;
+        }
+
+        .registration-form .link {
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top-frame">
+        <img src="logo.png" alt="Logo">
+        <h1>Gitam University Book Store - Registration</h1>
+    </div>
+
+    <div class="registration-form">
+        <h2>Create an Account</h2>
+        <form action="home.html" method="post">
+            <label for="fullname">Full Name:</label>
+            <input type="text" id="fullname" name="fullname" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" required>
+
+            <input type="submit" value="Register">
+        </form>
+        <p class="link">Already have an account? <a href="login.html" style="color: #2d6a4f;">Login here</a></p>
+    </div>
+
+</body>
+</html>

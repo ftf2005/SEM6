@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Gitam University Book Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f9f4;
+        }
+
+        #top-frame {
+            background-color: #2d6a4f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #top-frame a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+        }
+
+        #top-frame a:hover {
+            text-decoration: underline;
+        }
+
+        .cart-container {
+            padding: 30px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #ccc;
+            background-color: #e4f4e6;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .cart-item p {
+            margin: 0;
+        }
+
+        .cart-summary {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #2d6a4f;
+        }
+
+        .cart-summary span {
+            font-weight: bold;
+        }
+
+        .checkout-btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #2d6a4f;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 4px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .checkout-btn:hover {
+            background-color: #1e4d3f;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="top-frame">
+        <img src="logo.png" alt="Logo">
+        <h1>Gitam University Book Store - Cart</h1>
+    </div>
+
+    <div class="cart-container">
+        <h2>Your Cart</h2>
+
+        <!-- Cart Item 1 -->
+        <div class="cart-item">
+            <p>Data Structures and Algorithms</p>
+            <p>$50</p>
+        </div>
+
+        <!-- Cart Item 2 -->
+        <div class="cart-item">
+            <p>Computer Networks</p>
+            <p>$40</p>
+        </div>
+
+        <!-- Cart Item 3 -->
+        <div class="cart-item">
+            <p>Operating Systems Concepts</p>
+            <p>$45</p>
+        </div>
+
+        <div class="cart-summary">
+            <p>Total: <span>$135</span></p>
+        </div>
+
+        <a href="checkout.html" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+
+</body>
+</html>
