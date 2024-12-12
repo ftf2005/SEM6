@@ -46,7 +46,11 @@
             margin-bottom: 30px;
         }
 
-        .category button {
+        .category input[type="checkbox"] {
+            display: none;
+        }
+
+        .category label {
             width: 100%;
             background-color: #2d6a4f;
             color: white;
@@ -56,9 +60,10 @@
             cursor: pointer;
             text-align: left;
             border-radius: 5px;
+            display: block;
         }
 
-        .category button:hover {
+        .category label:hover {
             background-color: #1e4d3f;
         }
 
@@ -68,6 +73,10 @@
             margin-top: 10px;
             display: none;
             padding-left: 20px;
+        }
+
+        .category input[type="checkbox"]:checked ~ ul {
+            display: block;
         }
 
         .category ul li {
@@ -93,34 +102,54 @@
         .cart-link:hover {
             text-decoration: underline;
         }
-    </style>
-    <script>
-        function toggleDropdown(categoryId) {
-            const list = document.getElementById(categoryId);
-            // Toggle visibility of the dropdown list
-            if (list.style.display === "none" || list.style.display === "") {
-                list.style.display = "block";
-            } else {
-                list.style.display = "none";
-            }
+
+        .nav-bar {
+            background-color: #2d6a4f;
+            padding: 10px;
+            text-align: center;
         }
-    </script>
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.1em;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .nav-bar a:hover {
+            background-color: #1e4d3f;
+        }
+    </style>
 </head>
 <body>
 
+    <!-- Top Frame -->
     <div id="top-frame">
         <img src="logo.png" alt="Logo">
         <h1>Gitam University Book Store - Catalogue</h1>
     </div>
 
+    <!-- Navigation Bar -->
+    <div class="nav-bar">
+        <a href="home.html">Home</a>
+        <a href="login.html">Login</a>
+        <a href="registration.html">Registration</a>
+        <a href="catalogue.html">Catalogue</a>
+        <a href="cart.html">Cart</a>
+    </div>
+
+    <!-- Content Container -->
     <div class="content-container">
         <h2 class="content-heading">Book Catalogue</h2>
         <p>Browse books based on categories listed below:</p>
 
         <!-- BTech CSE Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('btech-cse')">BTech - CSE Books</button>
-            <ul id="btech-cse">
+            <input type="checkbox" id="btech-cse">
+            <label for="btech-cse">BTech - CSE Books</label>
+            <ul>
                 <li>Data Structures and Algorithms - John Doe</li>
                 <li>Operating Systems Concepts - Abraham Silberschatz</li>
                 <li>Computer Networks - Andrew S. Tanenbaum</li>
@@ -133,8 +162,9 @@
 
         <!-- BTech IT Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('btech-it')">BTech - IT Books</button>
-            <ul id="btech-it">
+            <input type="checkbox" id="btech-it">
+            <label for="btech-it">BTech - IT Books</label>
+            <ul>
                 <li>Introduction to Algorithms - Thomas H. Cormen</li>
                 <li>Computer Organization and Design - David A. Patterson</li>
                 <li>Software Engineering - Ian Sommerville</li>
@@ -147,8 +177,9 @@
 
         <!-- MTech CSE Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('mtech-cse')">MTech - CSE Books</button>
-            <ul id="mtech-cse">
+            <input type="checkbox" id="mtech-cse">
+            <label for="mtech-cse">MTech - CSE Books</label>
+            <ul>
                 <li>Advanced Algorithms - M. T. Goodrich</li>
                 <li>Machine Learning - Tom M. Mitchell</li>
                 <li>Deep Learning - Ian Goodfellow</li>
@@ -161,8 +192,9 @@
 
         <!-- MTech ECE Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('mtech-ece')">MTech - ECE Books</button>
-            <ul id="mtech-ece">
+            <input type="checkbox" id="mtech-ece">
+            <label for="mtech-ece">MTech - ECE Books</label>
+            <ul>
                 <li>Digital Signal Processing - John G. Proakis</li>
                 <li>Communication Systems - Simon Haykin</li>
                 <li>Electronic Devices and Circuits - Donald A. Neamen</li>
@@ -175,8 +207,9 @@
 
         <!-- BBA Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('bba')">BBA Books</button>
-            <ul id="bba">
+            <input type="checkbox" id="bba">
+            <label for="bba">BBA Books</label>
+            <ul>
                 <li>Principles of Management - Harold Koontz</li>
                 <li>Business Communication - Meenakshi Raman</li>
                 <li>Business Law - P. C. Tulsian</li>
@@ -189,8 +222,9 @@
 
         <!-- MBA Books Dropdown -->
         <div class="category">
-            <button onclick="toggleDropdown('mba')">MBA Books</button>
-            <ul id="mba">
+            <input type="checkbox" id="mba">
+            <label for="mba">MBA Books</label>
+            <ul>
                 <li>Strategic Management - Michael A. Hitt</li>
                 <li>Organizational Behavior - Stephen P. Robbins</li>
                 <li>Financial Management - I.M. Pandey</li>
