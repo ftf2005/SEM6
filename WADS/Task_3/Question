@@ -1,0 +1,3 @@
+1. Design the following static web pages required for an online book store web site. 
+i.	HOME PAGE: The static home page must contain three frames. Top frame: Logo and the college name and links to Home page, Login page, Registration page, Catalogue page and Cart page (the description of these pages will be given below). 
+ii.	Left frame: At least six  links for navigation, which will display the catalogue of respective links. For e.g.: When you click the link “BTech-CSE” the catalogue for BTech CSE Books should be displayed in the Right frame. Right frame: The pages to the links in the left frame must be loaded here. Initially this page contains description of the web site.
