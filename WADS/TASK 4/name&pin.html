@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Display Name and Roll No</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h2>Click the Display Name and Roll Number</h2>
+    
+    <button onclick="displayInfo()">Display Info</button>
+    <button onclick="display()">Display image</button>
+
+    <div class="output-box" id="outputBox">
+        <p id="name">Name: Eshwar Deshmukh Chavan</p>
+        <p id="rollNo">Roll No: HU22CSEN0100999</p>
+        
+    </div>
+    <div class="box" id="boxx">
+        <img src="DOG.jpg" >
+
+    </div>
+
+    <script>
+        
+        function displayInfo() {
+            
+            const outputBox = document.getElementById('outputBox');
+            outputBox.style.display = 'block';
+        }
+        function display() {
+            
+            const outputBox = document.getElementById('boxx');
+            outputBox.style.display = 'block';
+        }
+    </script>
+
+</body>
+</html>
