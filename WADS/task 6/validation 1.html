@@ -1,0 +1,192 @@
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"],
+        input[type="password"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #fff;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        input[type="checkbox"] {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover,
+        input[type="reset"]:hover,
+        input[type="checkbox"]:hover {
+            background-color: #0056b3;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>REGISTRATION FORM</h1>
+    <form name="RegForm" onsubmit="return validateForm()" onreset="resetErrors()">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="Name" placeholder="Enter your full name" />
+            <span id="name-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="Address" placeholder="Enter your address" />
+            <span id="address-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="email">E-mail Address:</label>
+            <input type="text" id="email" name="EMail" placeholder="Enter your email" />
+            <span id="email-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="Password" />
+            <span id="password-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="subject">Select Your Course:</label>
+            <select id="subject" name="Subject">
+                <option value="">Select Course</option>
+                <option value="BTECH">BTECH</option>
+                <option value="BBA">BBA</option>
+                <option value="BCA">BCA</option>
+                <option value="B.COM">B.COM</option>
+            </select>
+            <span id="subject-error" class="error-message"></span>
+        </p>
+        <p>
+            <label for="comment">College Name:</label>
+            <textarea id="comment" name="Comment"></textarea>
+        </p>
+        <p>
+            <input type="checkbox" id="agree" name="Agree" />
+            <label for="agree">I agree to the above information</label>
+            <span id="agree-error" class="error-message"></span>
+        </p>
+        <p>
+            <input type="submit" value="Send" name="Submit" />
+            <input type="reset" value="Reset" name="Reset" />
+        </p>
+    </form>
+    <script>
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const addr = document.getElementById("address").value;
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+            const sub = document.getElementById("subject").value;
+            const agree = document.getElementById("agree").checked;
+            const nameErr = document.getElementById("name-error");
+            const addrErr = document.getElementById("address-error");
+            const emailErr = document.getElementById("email-error");
+            const passErr = document.getElementById("password-error");
+            const subErr = document.getElementById("subject-error");
+            const agreeErr = document.getElementById("agree-error");
+            nameErr.textContent = "";
+            addrErr.textContent = "";
+            emailErr.textContent = "";
+            passErr.textContent = "";
+            subErr.textContent = "";
+            agreeErr.textContent = "";
+            let isValid = true;
+            if (name === "" || /\d/.test(name)) {
+                nameErr.textContent = "Please enter your name properly.";
+                isValid = false;
+            }
+            if (addr === "") {
+                addrErr.textContent = "Please enter your address.";
+                isValid = false;
+            }
+            if (email === "" || !email.includes("@") || !email.includes(".")) {
+                emailErr.textContent = "Please enter a valid email address.";
+                isValid = false;
+            }
+            if (pass === "" || pass.length < 6) {
+                passErr.textContent = "Please enter a password with at least 6 characters.";
+                isValid = false;
+            }
+            if (sub === "") {
+                subErr.textContent = "Please select your course.";
+                isValid = false;
+            }
+            if (!agree) {
+                agreeErr.textContent = "Please agree to the above information.";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form submitted successfully!");
+                return true;
+            } else {
+                return false;
+            }
+        }
+        function resetErrors() {
+            document.getElementById("name-error").textContent = "";
+            document.getElementById("address-error").textContent = "";
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("password-error").textContent = "";
+            document.getElementById("subject-error").textContent = "";
+            document.getElementById("agree-error").textContent = "";
+        }
+    </script>
+</body>
+
+</html>

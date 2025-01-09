@@ -1,0 +1,148 @@
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 300vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .alert {
+            color: red;
+            font-size: 12px;
+            margin-top: -5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Sign Up</h2>
+        <form id="myForm">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <div id="firstName-error" class="alert"></div>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <div id="lastName-error" class="alert"></div>
+            <input type="text" id="username" placeholder="Username" required>
+            <div id="username-error" class="alert"></div>
+            <input type="email" id="email" placeholder="Email" required>
+            <div id="email-error" class="alert"></div>
+            <input type="password" id="password" placeholder="Password" required>
+            <div id="password-error" class="alert"></div>
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+            <div id="phone-error" class="alert"></div>
+            <input type="date" id="dob" placeholder="Date of Birth" required>
+            <div id="dob-error" class="alert"></div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        const form = document.getElementById("myForm");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const fName = document.getElementById("firstName").value;
+            const lName = document.getElementById("lastName").value;
+            const user = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const pass = document.getElementById("password").value;
+            const phone = document.getElementById("phone").value;
+            const dob = document.getElementById("dob").value;
+            let isValid = true;
+            document.getElementById("firstName-error").textContent = "";
+            document.getElementById("lastName-error").textContent = "";
+            document.getElementById("username-error").textContent = "";
+            document.getElementById("email-error").textContent = "";
+            document.getElementById("password-error").textContent = "";
+            document.getElementById("phone-error").textContent = "";
+            document.getElementById("dob-error").textContent = "";
+            const nameRegex = /^[a-zA-Z]{1,30}$/;
+            if (!nameRegex.test(fName)) {
+                document.getElementById("firstName-error").textContent =
+                    "First name must be 1-30 letters.";
+                isValid = false;
+            }
+            if (!nameRegex.test(lName)) {
+                document.getElementById("lastName-error").textContent =
+                    "Last name must be 1-30 letters.";
+                isValid = false;
+            }
+            const userRegex = /^[a-zA-Z0-9_]{3,15}$/;
+            if (!userRegex.test(user)) {
+                document.getElementById("username-error").textContent =
+                    "Username must be 3-15 chars (letters, numbers, underscores).";
+                isValid = false;
+            }
+            const emailRegex = /^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+)\.([a-zA-Z]{2,})$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById("email-error").textContent =
+                    "Invalid email address.";
+                isValid = false;
+            }
+            const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/;
+            if (!passRegex.test(pass)) {
+                document.getElementById("password-error").textContent =
+                    "Password must have 8+ chars, 1 uppercase, 1 number, 1 special char.";
+                isValid = false;
+            }
+            const phoneRegex = /^[7-9][0-9]{9}$/;
+            if (!phoneRegex.test(phone)) {
+                document.getElementById("phone-error").textContent =
+                    "Phone must be 10 digits, starting with 7-9.";
+                isValid = false;
+            }
+            const today = new Date();
+            const bDate = new Date(dob);
+            const age = today.getFullYear() - bDate.getFullYear();
+            const month = today.getMonth() - bDate.getMonth();
+            if (age < 18 || (age === 18 && month < 0)) {
+                document.getElementById("dob-error").textContent =
+                    "You must be at least 18 years old.";
+                isValid = false;
+            }
+            if (isValid) {
+                alert("Form submitted successfully!");
+            }
+        });
+    </script>
+</body>
+
+</html>
