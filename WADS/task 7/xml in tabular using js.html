@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stack Developer Profile</title>
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    .profile-table {
+      width: 50%;
+      margin: 50px auto;
+      border-collapse: collapse;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-table th, .profile-table td {
+      padding: 12px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .profile-table th {
+      background-color: #3498db;
+      color: white;
+    }
+
+    .profile-table tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    .profile-table tbody tr:hover {
+      background-color: #f1c40f;
+    }
+
+    h1 {
+      color: #3498db;
+      margin-top: 50px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Full Stack Developer Profile</h1>
+  
+  <script>
+    const xmlString = `
+      <profile>
+        <name>Eshwar</name>
+        <university>Gitam University, Hyderabad</university>
+        <year>3rd Year</year>
+        <skills>
+          <skill>HTML</skill>
+          <skill>CSS</skill>
+          <skill>JavaScript</skill>
+          <skill>React</skill>
+          <skill>Node.js</skill>
+          <skill>MongoDB</skill>
+        </skills>
+        <experience>
+          <company>XYZ Tech Solutions</company>
+          <role>Intern</role>
+          <duration>June 2024 - August 2024</duration>
+          <details>
+            <detail>Worked on building web applications using React and Node.js.</detail>
+            <detail>Integrated databases using MongoDB and improved front-end performance.</detail>
+          </details>
+        </experience>
+      </profile>
+    `;
+
+    function loadXMLData() {
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+      const name = xmlDoc.getElementsByTagName("name")[0].textContent;
+      const university = xmlDoc.getElementsByTagName("university")[0].textContent;
+      const year = xmlDoc.getElementsByTagName("year")[0].textContent;
+      const skills = Array.from(xmlDoc.getElementsByTagName("skill")).map(skill => skill.textContent);
+      const company = xmlDoc.getElementsByTagName("company")[0].textContent;
+      const role = xmlDoc.getElementsByTagName("role")[0].textContent;
+      const duration = xmlDoc.getElementsByTagName("duration")[0].textContent;
+      const details = Array.from(xmlDoc.getElementsByTagName("detail")).map(detail => detail.textContent);
+
+      displayTable(name, university, year, skills, company, role, duration, details);
+    }
+
+    function displayTable(name, university, year, skills, company, role, duration, details) {
+      let tableHTML = "<table class='profile-table'>";
+      
+      tableHTML += `
+        <thead>
+          <tr><th colspan="2">Profile Information</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Name:</strong></td><td>${name}</td></tr>
+          <tr><td><strong>University:</strong></td><td>${university}</td></tr>
+          <tr><td><strong>Year:</strong></td><td>${year}</td></tr>
+          <tr><td><strong>Skills:</strong></td><td>${skills.join(", ")}</td></tr>
+          <tr><td><strong>Company:</strong></td><td>${company}</td></tr>
+          <tr><td><strong>Role:</strong></td><td>${role}</td></tr>
+          <tr><td><strong>Duration:</strong></td><td>${duration}</td></tr>
+          <tr><td><strong>Details:</strong></td><td>${details.join(", ")}</td></tr>
+        </tbody>
+      `;
+
+      tableHTML += "</table>";
+
+      document.body.innerHTML += tableHTML;
+    }
+    loadXMLData();
+  </script>
+
+</body>
+</html>

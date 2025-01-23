@@ -1,0 +1,155 @@
+/* General layout for profile */
+profile {
+    font-family: 'Arial', sans-serif;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #f0f4f8;
+    border-radius: 15px;
+    max-width: 950px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  header name {
+    font-size: 3em;
+    font-weight: 800;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  header university,
+  header year,
+  header major {
+    font-size: 1.2em;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+    display: block;
+  }
+  
+  section {
+    margin-bottom: 40px;
+  }
+  
+  h2 {
+    font-size: 2em;
+    font-weight: 600;
+    color: #34495e;
+    border-bottom: 3px solid #3498db;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+  }
+  
+  #skills skill,
+  #projects project {
+    font-size: 1.1em;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 20px;
+    margin: 8px;
+    padding: 10px 20px;
+    display: inline-block;
+    text-transform: capitalize;
+    box-shadow: 0 5px 10px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+  }
+  
+  #skills skill:hover,
+  #projects project:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+  }
+  
+  #experience job,
+  #projects project {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  #experience job:hover,
+  #projects project:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  job title,
+  project name {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  company {
+    font-style: italic;
+    color: #7f8c8d;
+  }
+  
+  duration {
+    font-size: 1.1em;
+    color: #27ae60;
+  }
+  
+  description {
+    margin-top: 10px;
+    color: #7f8c8d;
+  }
+  
+  technologies {
+    margin-top: 10px;
+    color: #3498db;
+    font-weight: 600;
+  }
+  
+  project description,
+  job description {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.5;
+  }
+  
+  #projects project {
+    background-color: #ecf0f1;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  #projects project:hover {
+    background-color: #dfe6e9;
+    transform: translateY(-3px);
+  }
+  
+  #experience, #projects {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  @media (max-width: 768px) {
+    profile {
+      padding: 20px;
+      margin: 10px;
+    }
+  
+    header name {
+      font-size: 2.2em;
+    }
+  
+    h2 {
+      font-size: 1.7em;
+    }
+  
+    #skills skill,
+    #projects project {
+      font-size: 1em;
+      padding: 8px 15px;
+    }
+  }
+  

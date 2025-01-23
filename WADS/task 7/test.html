@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Full Stack Developer Profile</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #f7f7f7; }
+    table { width: 60%; margin: 30px auto; border-collapse: collapse; background: white; }
+    th, td { padding: 10px; border: 1px solid #ddd; }
+    th { background: #3498db; color: white; }
+    tbody tr:nth-child(even) { background: #f2f2f2; }
+    tbody tr:hover { background: #f1c40f; }
+  </style>
+</head>
+<body>
+
+<h1>Full Stack Developer Profile</h1>
+
+<script>
+  const xmlString = `
+    <profile>
+      <name>Eshwar</name>
+      <university>Gitam University, Hyderabad</university>
+      <year>3rd Year</year>
+      <skills>HTML, CSS, JavaScript, React, Node.js, MongoDB</skills>
+      <experience>Intern at XYZ Tech Solutions (June 2024 - August 2024)</experience>
+    </profile>
+  `;
+
+  function displayProfile() {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlString, "application/xml");
+
+    const name = xmlDoc.getElementsByTagName("name")[0].textContent;
+    const university = xmlDoc.getElementsByTagName("university")[0].textContent;
+    const year = xmlDoc.getElementsByTagName("year")[0].textContent;
+    const skills = xmlDoc.getElementsByTagName("skills")[0].textContent;
+    const experience = xmlDoc.getElementsByTagName("experience")[0].textContent;
+
+    let tableHTML = `
+      <table>
+        <thead><tr><th colspan="2">Profile Information</th></tr></thead>
+        <tbody>
+          <tr><td>Name:</td><td>${name}</td></tr>
+          <tr><td>University:</td><td>${university}</td></tr>
+          <tr><td>Year:</td><td>${year}</td></tr>
+          <tr><td>Skills:</td><td>${skills}</td></tr>
+          <tr><td>Experience:</td><td>${experience}</td></tr>
+        </tbody>
+      </table>
+    `;
+
+    document.body.innerHTML += tableHTML;
+  }
+
+  displayProfile();
+</script>
+
+</body>
+</html>

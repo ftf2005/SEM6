@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Yearly Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h1 {
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        #calendarContainer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 150%;
+            max-width: 1050px;
+        }
+
+        .month-container {
+            background-color: #4A90E2;
+            color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .month-name {
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            padding: 15px;
+            background-color: #003366;
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            text-align: center;
+            padding: 10px;
+            color: white;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #4A90E2; /* Same background color as the numbers */
+        }
+
+        td {
+            background-color: #4A90E2;
+            height: 50px;
+        }
+
+        td.empty {
+            background-color: #4A90E2;
+            color: #4A90E2;
+        }
+    </style>
+</head>
+<body>
+
+<h1>2025 Yearly Calendar</h1>
+<div id="calendarContainer"></div>
+
+<script>
+// XML data for the 2025 calendar
+const xmlData = `<?xml version="1.0" encoding="UTF-8"?>
+<calendar year="2025">
+    <month name="January" days="31" startDay="2"/>
+    <month name="February" days="28" startDay="5"/>
+    <month name="March" days="31" startDay="5"/>
+    <month name="April" days="30" startDay="1"/>
+    <month name="May" days="31" startDay="3"/>
+    <month name="June" days="30" startDay="6"/>
+    <month name="July" days="31" startDay="1"/>
+    <month name="August" days="31" startDay="4"/>
+    <month name="September" days="30" startDay="0"/>
+    <month name="October" days="31" startDay="3"/>
+    <month name="November" days="30" startDay="6"/>
+    <month name="December" days="31" startDay="2"/>
+</calendar>`;
+
+function loadCalendar() {
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlData, "application/xml");
+    const months = xmlDoc.getElementsByTagName("month");
+    const calendarContainer = document.getElementById("calendarContainer");
+
+    for (let month of months) {
+        const monthName = month.getAttribute("name");
+        const daysInMonth = parseInt(month.getAttribute("days"));
+        const startDay = parseInt(month.getAttribute("startDay"));
+
+        // Create container for each month
+        const monthContainer = document.createElement("div");
+        monthContainer.className = "month-container";
+
+        // Month name header
+        const monthHeader = document.createElement("div");
+        monthHeader.className = "month-name";
+        monthHeader.textContent = monthName;
+        monthContainer.appendChild(monthHeader);
+
+        // Create table for each month
+        const table = document.createElement("table");
+
+        // Add weekday headers
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+        ["S", "M", "T", "W", "T", "F", "S"].forEach(day => {
+            const th = document.createElement("th");
+            th.textContent = day;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Add days
+        const tbody = document.createElement("tbody");
+        let dayCounter = 1;
+        let row = document.createElement("tr");
+
+        // Add empty cells for days before the first of the month
+        for (let i = 0; i < startDay; i++) {
+            const cell = document.createElement("td");
+            cell.className = "empty";
+            row.appendChild(cell);
+        }
+
+        // Add days of the month
+        for (let i = startDay; i < 7; i++) {
+            if (dayCounter <= daysInMonth) {
+                const cell = document.createElement("td");
+                cell.textContent = dayCounter++;
+                row.appendChild(cell);
+            }
+        }
+        tbody.appendChild(row);
+
+        // Continue adding rows until the month is complete
+        while (dayCounter <= daysInMonth) {
+            row = document.createElement("tr");
+            for (let i = 0; i < 7 && dayCounter <= daysInMonth; i++) {
+                const cell = document.createElement("td");
+                cell.textContent = dayCounter++;
+                row.appendChild(cell);
+            }
+            tbody.appendChild(row);
+        }
+
+        table.appendChild(tbody);
+        monthContainer.appendChild(table);
+        calendarContainer.appendChild(monthContainer);
+    }
+}
+
+// Load the calendar when the page loads
+window.onload = loadCalendar;
+</script>
+
+</body>
+</html>

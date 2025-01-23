@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025 Calendar</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .month {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+        .month h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+        .weekdays, .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+        }
+        .weekdays div, .days div {
+            text-align: center;
+            padding: 5px;
+        }
+        .weekdays {
+            font-weight: bold;
+        }
+        .days div {
+            border: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <h1>2025 Yearly Calendar</h1>
+    <div id="calendar" class="calendar"></div>
+
+    <script>
+        // Load and parse the XML file
+        fetch('calendar.xml')
+            .then(response => response.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(data, "text/xml");
+
+                // Get the calendar element
+                const calendarElement = document.getElementById('calendar');
+                const year = xmlDoc.getElementsByTagName('calendar')[0].getAttribute('year');
+                document.querySelector('h1').textContent = `${year} Yearly Calendar`;
+
+                // Loop through each month in the XML
+                const months = xmlDoc.getElementsByTagName('month');
+                for (let month of months) {
+                    const monthName = month.getAttribute('name');
+
+                    // Create a div for the month
+                    const monthDiv = document.createElement('div');
+                    monthDiv.className = 'month';
+                    monthDiv.innerHTML = `<h2>${monthName}</h2>`;
+
+                    // Add weekdays header
+                    const weekdaysDiv = document.createElement('div');
+                    weekdaysDiv.className = 'weekdays';
+                    weekdaysDiv.innerHTML = `
+                        <div>S</div><div>M</div><div>T</div><div>W</div><div>T</div><div>F</div><div>S</div>
+                    `;
+                    monthDiv.appendChild(weekdaysDiv);
+
+                    // Add days
+                    const daysDiv = document.createElement('div');
+                    daysDiv.className = 'days';
+
+                    const weeks = month.getElementsByTagName('week');
+                    for (let week of weeks) {
+                        const days = week.getElementsByTagName('day');
+                        for (let day of days) {
+                            const dayDiv = document.createElement('div');
+                            dayDiv.textContent = day.textContent;
+                            daysDiv.appendChild(dayDiv);
+                        }
+                    }
+
+                    monthDiv.appendChild(daysDiv);
+                    calendarElement.appendChild(monthDiv);
+                }
+            })
+            .catch(error => console.error('Error loading XML:', error));
+    </script>
+</body>
+</html>

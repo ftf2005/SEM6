@@ -1,0 +1,9 @@
+<profile>
+  <name>John Doe</name>
+  <age>25</age>
+  <hobbies>
+    <hobby>Coding</hobby>
+    <hobby>Reading</hobby>
+    <hobby>Traveling</hobby>
+  </hobbies>
+</profile>

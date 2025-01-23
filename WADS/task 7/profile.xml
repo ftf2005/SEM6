@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="style.css"?>
+<profile>
+  <header>
+    <name>Eshwar</name>
+    <university>Gitam University, Hyderabad</university>
+    <year>3rd Year</year>
+    <major>Full Stack Development</major>
+  </header>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <skill>HTML</skill>
+    <skill>CSS</skill>
+    <skill>JavaScript</skill>
+    <skill>React</skill>
+    <skill>Node.js</skill>
+    <skill>MongoDB</skill>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <job>
+      <title>Intern</title>
+      <company>XYZ Tech Solutions</company>
+      <duration>June 2024 - August 2024</duration>
+      <description>Worked on building web applications using React and Node.js, integrated databases using MongoDB, and improved front-end performance.</description>
+    </job>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <project>
+      <name>Portfolio Website</name>
+      <description>A personal website showcasing my projects and skills.</description>
+      <technologies>HTML, CSS, JavaScript, React</technologies>
+    </project>
+    <project>
+      <name>Task Manager App</name>
+      <description>A task management app built using React, Node.js, and MongoDB to manage daily tasks.</description>
+      <technologies>React, Node.js, MongoDB</technologies>
+    </project>
+  </section>
+</profile>
