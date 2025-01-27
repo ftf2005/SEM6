@@ -1,3 +1,5 @@
+#Write a program to read CFG productions and store into corresponding data structures.
+
 def main():
     n = int(input("Enter the number of productions: "))
     productions = []
@@ -19,13 +21,32 @@ def main():
     
     # Terminals
     print("\nThe terminals are:")
-    terminals = set()
     for _, rule in productions:
-        for char in rule:
-            if not char.isupper() and char != '/':
-                terminals.add(char)
-    
-    print("\t".join(terminals))
+        print(rule)
 
 if __name__ == "__main__":
     main()
+
+# Enter the number of productions: 3
+# Enter the non-terminal: A
+# Enter the RHS production: bd
+# Enter the non-terminal: B
+# Enter the RHS production: bf
+# Enter the non-terminal: C
+# Enter the RHS production: jfg
+
+# Entered productions are:
+# A -> bd
+# The starting symbol of the production is: A
+# B -> bf
+# The starting symbol of the production is: B
+# C -> jfg
+# The starting symbol of the production is: C
+
+# The non-terminals are:
+# A
+# B
+# C
+
+# The terminals are:
+# g	d	f	b	j
