@@ -1,0 +1,23 @@
+[
+    {
+      "category": "Food",
+      "description": "Lunch",
+      "amount": 15.50
+    },
+    {
+      "category": "Transportation",
+      "description": "Bus fare",
+      "amount": 2.75
+    },
+    {
+      "category": "Entertainment",
+      "description": "Movie ticket",
+      "amount": 12.00
+    },
+    {
+      "category": "Food",
+      "description": "Coffee",
+      "amount": 4.25
+    }
+  ]
+  

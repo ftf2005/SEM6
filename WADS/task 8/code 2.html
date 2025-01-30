@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object to JSON Example</title>
+</head>
+<body>
+  <h1>Convert Object to JSON</h1>
+  <button onclick="convertToJson()">Convert</button>
+  
+  <div id="jsonOutput" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd;"></div>
+
+  <script>
+    function convertToJson() {
+      const person = {
+        name: "Alice",
+        age: 25,
+        city: "London"
+      };
+
+      const jsonString = JSON.stringify(person);
+
+      document.getElementById('jsonOutput').innerText = jsonString;
+    }
+  </script>
+</body>
+</html>

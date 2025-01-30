@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "price": 899.99,
+    "description": "A high performance laptop for work and play.",
+    "image": "https://via.placeholder.com/150"
+  },
+  {
+    "id": 2,
+    "name": "Smartphone",
+    "price": 499.99,
+    "description": "Latest smartphone with amazing features.",
+    "image": "https://via.placeholder.com/150"
+  }
+]

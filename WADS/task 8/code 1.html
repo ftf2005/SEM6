@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object to String Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Convert JavaScript Object to String</h1>
+  <button onclick="convertObjectToString()">Convert Object</button>
+
+  <div id="output"></div>
+
+  <script> 
+    const obj = {
+      name: "John",
+      age: 30,
+      city: "New York"
+    };
+
+    function convertObjectToString() {
+      const jsonString = JSON.stringify(obj);                               
+      document.getElementById("output").innerText = jsonString;  
+    }
+  </script>
+</body>
+</html>

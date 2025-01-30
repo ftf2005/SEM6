@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Product List</title>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <div id="product-list"></div>
+
+    <script>
+        fetch('products.json')
+            .then(response => response.json())  
+            .then(products => {
+                s
+                let productList = document.getElementById('product-list');
+            
+                products.forEach(product => {
+                    let productItem = document.createElement('div');
+                    
+                    productItem.innerHTML = `
+                        <strong>${product.name}</strong><br>
+                        Price: $${product.price}<br>
+                        Description: ${product.description}<br><br>
+                    `;
+            
+                    productList.appendChild(productItem);
+                });
+            })
+            .catch(error => console.error('Error fetching product data:', error)); 
+    </script>
+</body>
+</html>
