@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search and Replace Example</title>
+</head>
+<body>
+
+    <h1>Search and Replace Text</h1>
+    <p id="text">I love apple pie and apple juice and apple tart.</p>
+    
+    <button onclick="searchAndReplace()">Search and Replace "apple" with "orange"</button>
+
+    <p id="result"></p>
+
+    <script>
+        function searchAndReplace() {
+            let text = document.getElementById("text").textContent;
+            let words = text.split(" ");
+            let positions = [];
+            
+            for (let i = 0; i < words.length; i++) {
+                if (words[i].toLowerCase() === "apple") {
+                    positions.push(i + 1);  // Word positions are 1-based
+                }
+            }
+
+            if (positions.length > 0) {
+                let replacedText = text.replace(/apple/g, "orange");
+                document.getElementById("result").textContent = "Word Positions: " + positions.join(", ") + " | Updated Text: " + replacedText;
+            } else {
+                document.getElementById("result").textContent = "The word 'apple' was not found in the text.";
+            }
+        }
+    </script>
+
+</body>
+</html>
