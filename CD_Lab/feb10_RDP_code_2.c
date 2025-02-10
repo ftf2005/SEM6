@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
 int i = 0, t = 1;
 char str[20];
 
@@ -7,66 +10,79 @@ void EPRIME();
 void T();
 void TPRIME();
 void F();
+void FPRIME();
 void error();
 
-void main() {
+int main()
+{
     printf("The given grammar is:\n");
-    printf("\nE -> E+T | T");
-    printf("\nT -> TF | F");
-    printf("\nF -> F* | a | b");
-    
+    printf("\nE  -> TE'");
+    printf("\nE' -> +TE'/$");
+    printf("\nT  -> FT'");
+    printf("\nT' -> FT'/$");
+    printf("\nF  -> (a/b)F'");
+    printf("\nF' -> *F'/$");    
     printf("\nEnter the string to be parsed: ");
     scanf("%s", str);
-    
+
     E();
-    
+
     if (t != 1 || str[i] != '\0') {
         printf("\nGiven string is not accepted\n");
     } else {
-        printf("The given string is accepted\n");
+        printf("\nThe given string is accepted\n");
     }
+
+    return 0;
 }
 
-void E() {
+void E()
+{
     T();
     EPRIME();
 }
 
-void EPRIME() {
+void EPRIME()
+{
     if (str[i] == '+') {
         i++;
         T();
         EPRIME();
-    } else {
-        return;
     }
 }
 
-void T() {
+void T()
+{
     F();
     TPRIME();
 }
 
-void TPRIME() {
-    if (str[i] == 'F') {   
-        i++;
+void TPRIME()
+{
+    if (str[i] == 'a' || str[i] == 'b' || str[i] == '(') {
         F();
-    } else {
-        return;
+        TPRIME();
     }
 }
 
-void F() {
+void F()
+{
     if (str[i] == 'a' || str[i] == 'b') {
         i++;
-    } else if (str[i] == '*') {
-        i++;
-        F();
+        FPRIME();
     } else {
         error();
     }
 }
 
-void error() {
+void FPRIME()
+{
+    while (str[i] == '*') {
+        i++;
+    }
+}
+
+void error()
+{
     t = -1;
 }
