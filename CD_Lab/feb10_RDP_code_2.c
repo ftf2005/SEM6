@@ -1,6 +1,5 @@
 #include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+
 
 int i = 0, t = 1;
 char str[20];
@@ -16,12 +15,9 @@ void error();
 int main()
 {
     printf("The given grammar is:\n");
-    printf("\nE  -> TE'");
-    printf("\nE' -> +TE'/$");
-    printf("\nT  -> FT'");
-    printf("\nT' -> FT'/$");
-    printf("\nF  -> (a/b)F'");
-    printf("\nF' -> *F'/$");    
+      printf("\nE -> E+T | T");
+    printf("\nT -> TF | F");
+    printf("\nF -> F* | a | b");  
     printf("\nEnter the string to be parsed: ");
     scanf("%s", str);
 
