@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Information</title>
+</head>
+<body>
+  <h1>Student Information</h1>
+  <div id="student-info"></div>
+
+  <script>
+    const jsonString = '{"pin": "0999", "firstname": "Eshwar", "lastname": "Deshmukh Chavan", "course": "Computer Science", "cgpa": 10}';
+
+    class Student {
+      constructor(pin, firstname, lastname, course, cgpa) {
+        this.pin = pin;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.course = course;
+        this.cgpa = cgpa;
+      }
+
+      display() {
+        return `${this.pin} ,${this.firstname} ${this.lastname}, ${this.course}, CGPA: ${this.cgpa}`;
+      }
+    }
+
+    const studentData = JSON.parse(jsonString);
+    const student = new Student(studentData.pin, studentData.firstname, studentData.lastname, studentData.course, studentData.cgpa);
+    document.getElementById('student-info').innerText = student.display();
+  </script>
+</body>
+</html>
