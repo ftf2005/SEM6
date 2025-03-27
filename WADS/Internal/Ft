@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>AngularJS JSON Multiple Inputs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-controller="myCtrl">
+        <label for="name">Name:</label>
+        <input type="text" id="name" ng-model="inputData.name"><br><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" ng-model="inputData.age"><br><br>
+
+        <button ng-click="addToJson()">Add JSON</button>
+
+        <h2>JSON Output:</h2>
+        <pre>{{ jsonData | json }}</pre>
+    </div>
+
+    <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.inputData = {};
+            $scope.jsonData = []; // Store multiple JSON objects
+
+            $scope.addToJson = function() {
+                if ($scope.inputData.name && $scope.inputData.age) { // Ensure both fields are filled
+                    $scope.jsonData.push(angular.copy($scope.inputData)); // Add new JSON object
+                    $scope.inputData = {}; // Reset input fields
+                }
+            };
+        });
+    </script>
+</body>
+</html>
